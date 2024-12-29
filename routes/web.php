@@ -19,23 +19,29 @@ use App\Http\Controllers\Auth\LoginController;
 */
 
 Route::get('/', function () {
-    return redirect('login');
+    return view('welcome');
 });
 
-Auth::routes();
+Route::get('home', [HomeController::class, 'index'])->name('home');
 
 Route::get('profile', ProfileController::class)->name('profile');
 
-Route::resource('employees', EmployeeController::class)->middleware('auth');
+Route::resource('employees', EmployeeController::class);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Auth::routes();
 
-Route::get('download-file/{employeeId}', [EmployeeController::class, 'downloadFile'])->name('employees.downloadFile');
+// Route::get('profile', ProfileController::class)->name('profile');
 
-Route::get('getEmployees', [EmployeeController::class, 'getData'])->name('employees.getData');
+// Route::resource('employees', EmployeeController::class)->middleware('auth');
 
-Route::get('exportExcel', [EmployeeController::class, 'exportExcel'])->name('employees.exportExcel');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('exportPdf', [EmployeeController::class, 'exportPdf'])->name('employees.exportPdf');
+// Route::get('download-file/{employeeId}', [EmployeeController::class, 'downloadFile'])->name('employees.downloadFile');
 
-Route::get('home', [HomeController::class, 'index'])->name('home');
+// Route::get('getEmployees', [EmployeeController::class, 'getData'])->name('employees.getData');
+
+// Route::get('exportExcel', [EmployeeController::class, 'exportExcel'])->name('employees.exportExcel');
+
+// Route::get('exportPdf', [EmployeeController::class, 'exportPdf'])->name('employees.exportPdf');
+
+// Route::get('home', [HomeController::class, 'index'])->name('home');
