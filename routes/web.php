@@ -38,3 +38,4 @@ Route::get('exportExcel', [EmployeeController::class, 'exportExcel'])->name('emp
 
 Route::get('exportPdf', [EmployeeController::class, 'exportPdf'])->name('employees.exportPdf');
 
+Route::get('home', [HomeController::class, 'index'])->name('home');
